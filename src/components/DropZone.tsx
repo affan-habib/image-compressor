@@ -18,17 +18,23 @@ export function DropZone({ onDrop }: DropZoneProps) {
     <div
       {...getRootProps()}
       className={`w-full p-8 border-2 border-dashed rounded-lg cursor-pointer transition-colors
-        ${isDragActive ? 'border-blue-500 bg-blue-50' : 'border-gray-300 hover:border-blue-400'}`}
+        ${isDragActive 
+          ? 'border-blue-500 bg-blue-50 dark:bg-blue-900/20' 
+          : 'border-gray-300 dark:border-gray-600 hover:border-blue-400 dark:hover:border-blue-500'
+        }
+        dark:bg-gray-800`}
     >
       <input {...getInputProps()} />
-      <div className="flex flex-col items-center justify-center text-gray-600">
+      <div className="flex flex-col items-center justify-center text-gray-600 dark:text-gray-300">
         <Upload className="w-12 h-12 mb-4" />
         {isDragActive ? (
           <p className="text-lg">Drop the images here...</p>
         ) : (
           <>
             <p className="text-lg mb-2">Drag & drop images here, or click to select files</p>
-            <p className="text-sm text-gray-500">Supports PNG, JPG, JPEG, GIF, and WebP</p>
+            <p className="text-sm text-gray-500 dark:text-gray-400">
+              Supports PNG, JPG, JPEG, GIF, and WebP
+            </p>
           </>
         )}
       </div>

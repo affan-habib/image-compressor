@@ -27,7 +27,7 @@ export function ImagePreview({
   };
 
   return (
-    <div className="relative p-4 bg-white rounded-lg shadow-md">
+    <div className="relative p-4 bg-white dark:bg-gray-800 rounded-lg shadow-md">
       <button
         onClick={onRemove}
         className="absolute -top-2 -right-2 p-1 bg-red-500 text-white rounded-full hover:bg-red-600"
@@ -43,20 +43,20 @@ export function ImagePreview({
         />
         
         <div className="flex-1">
-          <p className="font-medium truncate" title={originalImage.name}>
+          <p className="font-medium truncate text-gray-900 dark:text-white" title={originalImage.name}>
             {originalImage.name}
           </p>
           
           <div className="mt-2 space-y-1">
-            <p className="text-sm text-gray-600">
+            <p className="text-sm text-gray-600 dark:text-gray-400">
               Original: {originalSizeInMB} MB
             </p>
-            <p className="text-sm text-gray-600">
+            <p className="text-sm text-gray-600 dark:text-gray-400">
               Compressed: {compressedSizeInMB} MB
             </p>
             
             {compressionProgress < 100 && (
-              <div className="w-full bg-gray-200 rounded-full h-2">
+              <div className="w-full bg-gray-200 dark:bg-gray-700 rounded-full h-2">
                 <div
                   className="bg-blue-500 h-2 rounded-full transition-all duration-300"
                   style={{ width: `${compressionProgress}%` }}
@@ -68,7 +68,7 @@ export function ImagePreview({
           {compressedBlob && (
             <button
               onClick={handleDownload}
-              className="mt-2 flex items-center space-x-1 text-sm text-blue-500 hover:text-blue-600"
+              className="mt-2 flex items-center space-x-1 text-sm text-blue-500 hover:text-blue-600 dark:text-blue-400 dark:hover:text-blue-300"
             >
               <Download className="w-4 h-4" />
               <span>Download</span>
